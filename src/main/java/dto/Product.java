@@ -7,7 +7,17 @@ public class Product {
     private String productId;
     private String productName;
     private String productDescription;
+    private String categoryId;
     private String category;
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
     private int qty;
 
     public int getQty() {

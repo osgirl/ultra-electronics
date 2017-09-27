@@ -184,4 +184,32 @@ public class ProductController {
         return PRODUCTS;
 
     }
+
+    public boolean addProduct(Product product){
+        Connection connection = null;
+        try {
+            connection = new Database().connect();
+            // check if product id already exists
+            String sql1 = "SELECT 1 FROM product WHERE productId='"+product.getProductId()+"'";
+            Statement statement1 = connection.createStatement();
+            ResultSet resultSet = statement1.executeQuery(sql1);
+            if(resultSet.next()) return false;
+
+            String sql2 = "INSERT INTO product VALUES (" +
+                    "'"+product.getProductId()+"', '"
+                    +product.getProductName()+"', '"
+                    +product.getProductDescription()+"', '"+product.getCategoryId()+"', "+product.getUnitPrice()+")";
+            Statement statement2 = connection.createStatement();
+            statement2.execute(sql2);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException ignored) { }
+        }
+        return true;
+    }
+
+
 }
