@@ -41,6 +41,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <form id="login-form" action="${pageContext.request.contextPath}/product" method="post" role="form" style="display: block;">
+
+                                            <!--TODO: this should be automatically filled with next available product id -->
                                             <div class="form-group">
                                                 <input type="text" name="productId" id="Item_id" tabindex="1" class="form-control" placeholder="Product ID" value="">
                                             </div>
@@ -50,6 +52,8 @@
                                             <div class="form-group">
                                                 <input type="text" name="productDescription" id="Item_Description" tabindex="1" class="form-control" placeholder="Product Description" value="">
                                             </div>
+
+                                            <!--TODO: this should be changed to dropdown -->
                                             <div class="form-group">
                                                 <input type="text" name="categoryId" id="Quantity_on_hand" tabindex="1" class="form-control" placeholder="Category ID" value="">
                                             </div>
