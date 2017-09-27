@@ -4,15 +4,12 @@ html {
     box-sizing: border-box;
 }
 
-
-
 body {
     /*position: relative;*/
     margin: 0;
     padding-bottom: 6rem;
     /*min-height: 100%;*/
     font-family: 'Catamaran', sans-serif !important;
-
 }
 
 nav {
@@ -21,109 +18,84 @@ nav {
     margin-bottom: 0 !important;
 }
 
-
-
 .header :hover {
     background-color: #969991 !important;
 }
 
-
-#banner{
+#banner {
     width: 100%;
 }
 
-
-.btn_nav{
+.btn_nav {
     color: white !important;
     font-family: 'Catamaran', sans-serif !important;
     font-size: 14px;
     line-height: 1.42857143;
     font-weight: bold;
-
 }
 
-.lst :hover{
+.lst :hover {
     background-color: #969991 !important;
 
 }
 
-
-
-#cat_box{
-    background-color: #1473ab ;
+#cat_box {
+    background-color: #1473ab;
     /*height: 400px ;*/
     margin-left: 40px !important;
-    margin-right: 10px ;
-    margin-top: 20px ;
-    margin-bottom: 10px ;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     border-radius: 5px;
     padding-top: 20px;
     padding-left: 20px;
 }
 
-
-#new_arr_box{
-    background-color: #1473ab ;
+#new_arr_box {
+    background-color: #1473ab;
     /*height: 400px ;*/
     margin-left: 40px !important;
-    margin-right: 10px ;
-    margin-top: 20px ;
-    margin-bottom: 10px ;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     border-radius: 5px;
     padding-top: 20px;
     padding-left: 20px;
 }
 
-
-
-
-.footer{
+.footer {
     position: relative;
     right: 0;
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #efefef;
     text-align: center;
     background-color: #363636;
     color: #ffffff;
     font-weight: 500;
     margin-bottom: -150px;
 
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.data-table thead th {
+    text-align: center;
+}
 
 .panel-login {
     border-color: #ccc;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
 }
-.panel-login>.panel-heading {
+
+.panel-login > .panel-heading {
     color: #00415d;
     background-color: #fff;
     border-color: #fff;
-    text-align:center;
+    text-align: center;
 }
-.panel-login>.panel-heading a{
+
+.panel-login > .panel-heading a {
     text-decoration: none;
     color: #666;
     font-weight: bold;
@@ -132,22 +104,25 @@ nav {
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
-.panel-login>.panel-heading a.active{
+
+.panel-login > .panel-heading a.active {
     color: #029f5b;
     font-size: 18px;
 }
-.panel-login>.panel-heading hr{
+
+.panel-login > .panel-heading hr {
     margin-top: 10px;
     margin-bottom: 0px;
     clear: both;
     border: 0;
     height: 1px;
-    background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
-    background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-    background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-    background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
 }
-.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+
+.panel-login input[type="text"], .panel-login input[type="email"], .panel-login input[type="password"] {
     height: 45px;
     border: 1px solid #ddd;
     font-size: 16px;
@@ -155,14 +130,16 @@ nav {
     -moz-transition: all 0.1s linear;
     transition: all 0.1s linear;
 }
+
 .panel-login input:hover,
 .panel-login input:focus {
-    outline:none;
+    outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     border-color: #ccc;
 }
+
 .btn-login {
     background-color: #59B2E0;
     outline: none;
@@ -174,16 +151,19 @@ nav {
     text-transform: uppercase;
     border-color: #59B2E6;
 }
+
 .btn-login:hover,
 .btn-login:focus {
     color: #fff;
     background-color: #53A3CD;
     border-color: #53A3CD;
 }
+
 .forgot-password {
     text-decoration: underline;
     color: #888;
 }
+
 .forgot-password:hover,
 .forgot-password:focus {
     text-decoration: underline;
@@ -201,6 +181,7 @@ nav {
     text-transform: uppercase;
     border-color: #1CB94A;
 }
+
 .btn-register:hover,
 .btn-register:focus {
     color: #fff;
@@ -208,97 +189,90 @@ nav {
     border-color: #1CA347;
 }
 
-
-
-
-
-
-
-
-
-
 .tree, .tree ul {
-    margin:0;
-    padding:0;
-    list-style:none
+    margin: 0;
+    padding: 0;
+    list-style: none
 }
+
 .tree ul {
-    margin-left:1em;
-    position:relative
+    margin-left: 1em;
+    position: relative
 }
+
 .tree ul ul {
-    margin-left:.5em
+    margin-left: .5em
 }
+
 .tree ul:before {
-    content:"";
-    display:block;
-    width:0;
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    border-left:1px solid
+    content: "";
+    display: block;
+    width: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid
 }
+
 .tree li {
-    margin:0;
-    padding:0 1em;
-    line-height:2em;
-    color:#369;
-    font-weight:700;
-    position:relative
+    margin: 0;
+    padding: 0 1em;
+    line-height: 2em;
+    color: #369;
+    font-weight: 700;
+    position: relative
 }
+
 .tree ul li:before {
-    content:"";
-    display:block;
-    width:10px;
-    height:0;
-    border-top:1px solid;
-    margin-top:-1px;
-    position:absolute;
-    top:1em;
-    left:0
+    content: "";
+    display: block;
+    width: 10px;
+    height: 0;
+    border-top: 1px solid;
+    margin-top: -1px;
+    position: absolute;
+    top: 1em;
+    left: 0
 }
+
 .tree ul li:last-child:before {
-    background:#fff;
-    height:auto;
-    top:1em;
-    bottom:0
+    background: #fff;
+    height: auto;
+    top: 1em;
+    bottom: 0
 }
+
 .indicator {
-    margin-right:5px;
+    margin-right: 5px;
 }
+
 .tree li a {
     text-decoration: none;
-    color:#369;
+    color: #369;
 }
+
 .tree li button, .tree li button:active, .tree li button:focus {
     text-decoration: none;
-    color:#369;
-    border:none;
-    background:transparent;
-    margin:0px 0px 0px 0px;
-    padding:0px 0px 0px 0px;
+    color: #369;
+    border: none;
+    background: transparent;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     outline: 0;
 }
 
-
-
-
-
-
-
-
-.panel-table .panel-body{
-    padding:0;
+.panel-table .panel-body {
+    padding: 0;
 }
 
-.panel-table .panel-body .table-bordered{
+.panel-table .panel-body .table-bordered {
     border-style: none;
-    margin:0;
+    margin: 0;
 }
 
 .panel-table .panel-body .table-bordered > thead > tr > th:first-of-type {
-    text-align:center;
+    text-align: center;
     width: 100px;
 }
 
@@ -312,33 +286,80 @@ nav {
     border-left: 0px;
 }
 
-.panel-table .panel-body .table-bordered > tbody > tr:first-of-type > td{
+.panel-table .panel-body .table-bordered > tbody > tr:first-of-type > td {
     border-bottom: 0px;
 }
 
-.panel-table .panel-body .table-bordered > thead > tr:first-of-type > th{
+.panel-table .panel-body .table-bordered > thead > tr:first-of-type > th {
     border-top: 0px;
 }
 
-.panel-table .panel-footer .pagination{
-    margin:0;
+.panel-table .panel-footer .pagination {
+    margin: 0;
 }
 
 /*
 used to vertically center elements, may need modification if you're not using default sizes.
 */
-.panel-table .panel-footer .col{
+.panel-table .panel-footer .col {
     line-height: 34px;
     height: 34px;
 }
 
-.panel-table .panel-heading .col h3{
+.panel-table .panel-heading .col h3 {
     line-height: 30px;
     height: 30px;
 }
 
-.panel-table .panel-body .table-bordered > tbody > tr > td{
+.panel-table .panel-body .table-bordered > tbody > tr > td {
     line-height: 34px;
+}
+
+.single {
+    padding: 30px 15px;
+    margin-top: 40px;
+    background: #1473ab;
+    border: 1px solid #f0f0f0;
+}
+
+.single h3.side-title {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.single h3.side-title:after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    display: block;
+    margin-top: 6px;
+}
+
+.single ul {
+    margin-bottom: 0;
+}
+
+.single li a {
+    color: #fff;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+    line-height: 40px;
+    display: block;
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.single li a:hover {
+    background-color: #888;
+}
+
+.single li:last-child a {
+    border-bottom: 0;
 }
 
 

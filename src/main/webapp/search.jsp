@@ -1,3 +1,6 @@
+<!-- TODO : get the page content from category page and modify it. use searchProduct() method in ProductCController -->
+
+
 <%@ page import="dto.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="controllers.ProductController" %>
@@ -22,21 +25,22 @@
 
     <div class="col-md-9 col-xs-8">
         <div class="box" style="border-width: 20px">
+            <h4 style="margin-top: 20px; margin-bottom: -10px">Search results for : <%=request.getParameter("q")%></h4>
             <%
-            List<Product> latestProducts = new ProductController().getLatestProducts(15);
-            for(int i=0; i<latestProducts.size(); i=i+3){
+                List<Product> searchProducts = new ProductController().searchProducts(request.getParameter("q"));
+                for(int i=0; i<searchProducts.size(); i=i+3){
             %>
             <div class="row" style="">
                 <%
-                for(int j=i; j<i+3; j++){
+                    for(int j=i; j<i+3; j++){
                 %>
                 <div class="col-md-4 col-xs-4">
                     <div class="box" style="background: linear-gradient(#66e6f3, #1b8fd8) ; padding: 20px ; margin-top: 30px ; margin-right: 10px ; height: auto ; border-radius: 5px ">
-                        <img src="images/<%=latestProducts.get(j).getProductId()%>.png" alt="<%=latestProducts.get(j).getProductName()%>" style="width: 100% ">
-                        <span style="font-size: medium ; font-weight: bold ; color: #1B4F72"><%=latestProducts.get(j).getProductName()%></span>
+                        <img src="images/<%=searchProducts.get(j).getProductId()%>.png" alt="<%=searchProducts.get(j).getProductName()%>" style="width: 100% ">
+                        <span style="font-size: medium ; font-weight: bold ; color: #1B4F72"><%=searchProducts.get(j).getProductName()%></span>
                         <br>
                         <br>
-                        <label style=""><%=(latestProducts.get(j).getQty()>0)?"Available":"Out Of Stock"%></label>
+                        <label style=""><%=(searchProducts.get(j).getQty()>0)?"Available":"Out Of Stock"%></label>
                         <br>
                         <button type="button" class="btn btn-success">Buy It Now</button>
                         <button type="button" class="btn btn-primary">Add to wish list</button>
@@ -44,11 +48,11 @@
                     </div>
                 </div>
                 <%
-                }
+                    }
                 %>
             </div>
             <%
-            }
+                }
             %>
         </div>
         <br/><br/>

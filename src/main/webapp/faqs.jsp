@@ -2,136 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-
+    <title>FAQs</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/css.css" rel="stylesheet">
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
 </head>
 <body style="background-color: #ebebed">
 
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container" style="">
-
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="header" >
-                    <a href="shopping_cart.html" style="color: #ffffff">
-                        <i class="fa fa-address-book" aria-hidden="true"></i>
-                        &nbsp;
-                        <b>My Account</b></a>
-                </li>
-                <li class="header">
-                    <a href="wish_list.html" style="color: #ffffff">
-                        <i class="fa fa-list" aria-hidden="true"></i>
-                        &nbsp;
-                        <b>Wish List</b>
-                    </a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-left">
-                <li  >
-                    <a href="#" style="color: #ffffff">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        &nbsp;
-                        <b>Call us: +94712255222</b></a>
-                </li>
-                <li >
-                    <a href="#" style="color: #ffffff">
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        &nbsp;
-                        <b>Email: info@ultraelectronics.com</b></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-<div class="banner">
-
-    <img id="banner" src="images/banner.jpg" alt="banner">
-</div>
-
-
-
-
-<nav style="background-color: #000509 !important;" class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="col-sm-3 col-md-3">
-                <form class="navbar-form" role="search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="q">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="lst" style=""><a class="btn_nav" style="color: white " href="index.jsp">&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</a></li>
-                <li  class="dropdown">
-                    <a style="color: white ; font-weight: bold" href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;&nbsp;Products<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Development Boards</a></li>
-                        <li><a href="#">Modules & Sensors</a></li>
-                        <li><a href="#">Moters & Chasis</a></li>
-                        <li><a href="#">Battries & Chargers</a></li>
-                        <li><a href="#">Active Elements</a></li>
-                        <li><a href="#">Passive Elements</a></li>
-                        <li><a href="#">Tools</a></li>
-                    </ul>
-                </li>
-                <li class="lst"><a style="color: white ; background-color: #969991" class="btn_nav" href="faqs.html">&nbsp;&nbsp;&nbsp;FAQs&nbsp;&nbsp;&nbsp;</a></li>
-                <li class="lst"><a class="btn_nav" href="about_Us.html">&nbsp;About Us&nbsp;</a></li>
-
-                <li  class="dropdown">
-                    <a style="color: white ; font-weight: bold" href="#" class="dropdown-toggle" data-toggle="dropdown">Contact Us<b class="caret"></b></a>
-                    <ul style="color: black ; background-color: white ; width: 100% !important;" class="dropdown-menu">
-                        <li style="padding-left: 8px">Address :<br>No 167 1/1, <br>Galle road, <br>Dehiwala, <br>Sri Lanka.<br></li>
-                        <li class="divider"></li>
-                        <li style="padding-left: 8px">Email : <br>info@lankatronics.com<br></li>
-                        <li class="divider"></li>
-                        <li style="padding-left: 8px">Phone :	<br>+94 11 2735220<br></li>
-                        <li class="divider"></li>
-
-
-                    </ul>
-                </li>
-                <li  class="dropdown">
-                    <a style="color: white ; font-weight: bold" href="user.html" class="dropdown-toggle" data-toggle="dropdown">&nbsp;Sign In / Sign Up&nbsp;<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="user.html">User Sign In</a></li>
-                        <li><a href="admin.html">Admin Sign In</a></li>
-                        <li><a href="user.html">Sign Up</a></li>
-
-                    </ul>
-                </li>
-
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div>
-</nav>
-
-
-
-
+<jsp:include page="includes/top_bar.jsp">
+    <jsp:param name="menu" value="user_menu.html"/>
+</jsp:include>
 
 <div class="row">
     <div class="col-md-12"  >
@@ -146,17 +26,14 @@
                 <br>
                 <ul id="tree1">
                     <li><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><a href="#">WHERE ARE YOU LOCATED ?</a>
-
                         <ul>
                             <li>
-                                <span>
-                                   167 1/1 ,Galle Road Dehiwala, Sri Lanka.
-                                </span>
+                                <span>167 1/1 ,Galle Road Dehiwala, Sri Lanka.</span>
                             </li>
 
                         </ul>
                     </li>
-                    <br><br>
+                    <br/><br/>
                     <li><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><a href="#">CAN I PURCHASE ITEM OFFLINE ?</a>
 
                         <ul>
@@ -169,7 +46,7 @@
 
                         </ul>
                     </li>
-                    <br><br>
+                    <br/><br/>
                     <li><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i><a href="#">CAN I BUY ITEMS WHICH ARE NOT LISTED IN THE WEB SITE ?</a>
 
                         <ul>
@@ -404,17 +281,12 @@
                         </ul>
                     </li>
                     <br><br>
-
                 </ul>
             </div>
         </div>
     </div>
 </div>
-
-
 <div class="footer">@ Ultra Electronics web store - Galle</div>
-
-
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/js.js"></script>

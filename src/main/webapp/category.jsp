@@ -23,12 +23,12 @@
     <div class="col-md-9 col-xs-8">
         <div class="box" style="border-width: 20px">
             <%
-            List<Product> latestProducts = new ProductController().getLatestProducts(15);
-            for(int i=0; i<latestProducts.size(); i=i+3){
+                List<Product> latestProducts = new ProductController().getProductsByCategory(request.getParameter("category"));
+                for(int i=0; i<latestProducts.size(); i=i+3){
             %>
             <div class="row" style="">
                 <%
-                for(int j=i; j<i+3; j++){
+                    for(int j=i; j<i+3; j++){
                 %>
                 <div class="col-md-4 col-xs-4">
                     <div class="box" style="background: linear-gradient(#66e6f3, #1b8fd8) ; padding: 20px ; margin-top: 30px ; margin-right: 10px ; height: auto ; border-radius: 5px ">
@@ -44,11 +44,11 @@
                     </div>
                 </div>
                 <%
-                }
+                    }
                 %>
             </div>
             <%
-            }
+                }
             %>
         </div>
         <br/><br/>
