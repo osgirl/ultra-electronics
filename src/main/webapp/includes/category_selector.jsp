@@ -1,9 +1,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dto.Category" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="controllers.CategoryController" %>
 <%@ page import="dto.Product" %>
 <%@ page import="controllers.ProductController" %>
+<%@ page import="util.Properties" %>
 <div class="col-md-3 col-xs-4">
     <div class="row">
         <div id="cat_box" class="single category box">
@@ -29,7 +29,7 @@
                 List<Product> latestProducts = new ProductController().getLatestProducts(2);
                 for(Product product : latestProducts){
             %>
-            <img style="width: 100%" src="images/<%=product.getProductId()%>.png " alt="<%=product.getProductName()%>">
+            <img src="product-images/<%=product.getProductId()+"."+Properties.getInstance().getProperty("product.image.type")%>" alt="<%=product.getProductName()%>" style="width: 100% ">
             <br>
             <br>
             <span style="font-size: medium ; font-weight: bold ; color: #34495E"><%=product.getProductName()%></span>

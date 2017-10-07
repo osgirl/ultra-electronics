@@ -14,7 +14,7 @@
 <body style="background-color: #ebebed">
 
 <jsp:include page="includes/top_bar.jsp">
-    <jsp:param name="menu" value="admin_menu.html"/>
+    <jsp:param name="menu" value="admin_menu.jsp"/>
 </jsp:include>
 
 <div class="row">
@@ -59,7 +59,7 @@
                             <td><%=product.getQty() %></td>
                             <td><%=product.getUnitPrice() %></td>
                             <td align="center">
-                                <a href="admin_account.jsp" ><em class="fa fa-pencil"></em></a>
+                                <a href="admin_account.jsp?action=update-product&id=<%=product.getProductId()%>" ><em class="fa fa-pencil"></em></a>
                                 &nbsp;&nbsp;
                                 <a href="admin_account.jsp" ><em class="fa fa-trash"></em></a>
                             </td>

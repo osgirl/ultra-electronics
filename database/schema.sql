@@ -4,7 +4,7 @@ CREATE TABLE category
   catName VARCHAR(200),
   catDescription VARCHAR(200)
 );
-CREATE TABLE customer
+CREATE TABLE user
 (
   custId VARCHAR(100) DEFAULT '' PRIMARY KEY NOT NULL,
   name VARCHAR(200),
@@ -35,7 +35,7 @@ CREATE TABLE orders
   custId VARCHAR(100),
   paymentId VARCHAR(100),
   orderDate DATE,
-  CONSTRAINT orders_ibfk_1 FOREIGN KEY (custId) REFERENCES customer (custId),
+  CONSTRAINT orders_ibfk_1 FOREIGN KEY (custId) REFERENCES user (custId),
   CONSTRAINT orders_ibfk_2 FOREIGN KEY (paymentId) REFERENCES payment (paymentId)
 );
 CREATE INDEX custId ON orders (custId);
@@ -45,7 +45,7 @@ CREATE TABLE payment
   paymentId VARCHAR(100) DEFAULT '' PRIMARY KEY NOT NULL,
   amount DOUBLE,
   custId VARCHAR(100),
-  CONSTRAINT payment_ibfk_1 FOREIGN KEY (custId) REFERENCES customer (custId)
+  CONSTRAINT payment_ibfk_1 FOREIGN KEY (custId) REFERENCES user (custId)
 );
 CREATE INDEX custId ON payment (custId);
 CREATE TABLE product
@@ -58,3 +58,12 @@ CREATE TABLE product
   CONSTRAINT product_ibfk_1 FOREIGN KEY (catId) REFERENCES category (catId)
 );
 CREATE INDEX catId ON product (catId);
+
+SELECT  * FROM category;
+
+SELECT * FROM product;
+
+DELETE product FROM product WHERE productId = "aaa";
+
+
+

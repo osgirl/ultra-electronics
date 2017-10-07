@@ -16,7 +16,7 @@
 <body style="background-color: #ebebed">
 
 <jsp:include page="includes/top_bar.jsp">
-    <jsp:param name="menu" value="user_menu.html"/>
+    <jsp:param name="menu" value="user_menu.jsp"/>
 </jsp:include>
 
 <div class="row">

@@ -63,19 +63,6 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="lst" style=""><a class="btn_nav" style="color: white " href="index.jsp">&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</a>
                 </li>
-                <%--<li class="dropdown">--%>
-                    <%--<a style="color: white ; font-weight: bold" href="#" class="dropdown-toggle" data-toggle="dropdown">--%>
-                        <%--&nbsp;&nbsp;Products<b class="caret"></b></a>--%>
-                    <%--<ul class="dropdown-menu">--%>
-                        <%--<li><a href="#">Development Boards</a></li>--%>
-                        <%--<li><a href="#">Modules & Sensors</a></li>--%>
-                        <%--<li><a href="#">Moters & Chasis</a></li>--%>
-                        <%--<li><a href="#">Battries & Chargers</a></li>--%>
-                        <%--<li><a href="#">Active Elements</a></li>--%>
-                        <%--<li><a href="#">Passive Elements</a></li>--%>
-                        <%--<li><a href="#">Tools</a></li>--%>
-                    <%--</ul>--%>
-                <%--</li>--%>
                 <li class="lst"><a class="btn_nav" href="faqs.jsp">&nbsp;&nbsp;&nbsp;FAQs&nbsp;&nbsp;&nbsp;</a></li>
                 <li class="lst"><a class="btn_nav" href="about_us.jsp">&nbsp;&nbsp;&nbsp;About Us&nbsp;&nbsp;&nbsp;</a></li>
 
@@ -96,16 +83,8 @@
 
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a style="color: white ; font-weight: bold" href="user.jsp" class="dropdown-toggle"
-                       data-toggle="dropdown">&nbsp;Sign In / Sign Up&nbsp;<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="user.jsp">User Sign In</a></li>
-                        <li><a href="admin.jsp">Admin Sign In</a></li>
-                        <li><a href="user.jsp">Sign Up</a></li>
+                <li class="lst"><a class="btn_nav" href="user.jsp">&nbsp;Sign In / Sign Up&nbsp;</a></li>
 
-                    </ul>
-                </li>
 
             </ul>
         </div><!-- /.navbar-collapse -->

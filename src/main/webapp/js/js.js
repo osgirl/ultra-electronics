@@ -3,6 +3,58 @@
  */
 $(function() {
 
+    $('#add-product-link').click(function(e) {
+        $("#add-product").delay(100).fadeIn(100);
+        $("#add-category").fadeOut(100);
+        $("#update-product").fadeOut(100);
+        $("#update-category").fadeOut(100);
+        $('#add-category-link').removeClass('active');
+        $('#update-product-link').removeClass('active');
+        $('#update-category-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+    $('#add-category-link').click(function(e) {
+        $("#add-category").delay(100).fadeIn(100);
+        $("#add-product").fadeOut(100);
+        $("#update-product").fadeOut(100);
+        $("#update-category").fadeOut(100);
+        $('#add-product-link').removeClass('active');
+        $('#update-product-link').removeClass('active');
+        $('#update-category-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+    $('#update-product-link').click(function(e) {
+        $("#update-product").delay(100).fadeIn(100);
+        $("#update-category").fadeOut(100);
+        $("#add-product").fadeOut(100);
+        $("#add-category").fadeOut(100);
+        $('#update-category-link').removeClass('active');
+        $('#add-category-link').removeClass('active');
+        $('#add-product-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+    $('#update-category-link').click(function(e) {
+        $("#update-category").delay(100).fadeIn(100);
+        $("#update-product").fadeOut(100);
+        $("#add-product").fadeOut(100);
+        $("#add-category").fadeOut(100);
+        $('#update-product-link').removeClass('active');
+        $('#add-category-link').removeClass('active');
+        $('#add-product-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+    });
+
+
+});
+
+
+
+$(function() {
+
     $('#login-form-link').click(function(e) {
         $("#login-form").delay(100).fadeIn(100);
         $("#register-form").fadeOut(100);
@@ -17,30 +69,6 @@ $(function() {
         $(this).addClass('active');
         e.preventDefault();
     });
-
-
-});
-
-
-
-$(function() {
-
-    $('#login2-form-link').click(function(e) {
-        $("#login2-form").delay(100).fadeIn(100);
-        $("#register2-form").fadeOut(100);
-        $('#register2-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-    $('#register2-form-link').click(function(e) {
-        $("#register2-form").delay(100).fadeIn(100);
-        $("#login2-form").fadeOut(100);
-        $('#login2-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-
-
 });
 
 

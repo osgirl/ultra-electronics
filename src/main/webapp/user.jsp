@@ -11,7 +11,7 @@
 <body style="background-color: #ebebed">
 
 <jsp:include page="includes/top_bar.jsp">
-    <jsp:param name="menu" value="user_menu.html"/>
+    <jsp:param name="menu" value="user_menu.jsp"/>
 </jsp:include>
 
 <div class="row">
@@ -32,7 +32,7 @@
                                     <a href="#" class="active" id="login-form-link">Login</a>
                                 </div>
                                 <div class="col-xs-6">
-                                    <a href="#" id="register-form-link">Register or Update</a>
+                                    <a href="#" id="register-form-link">Register</a>
                                 </div>
                             </div>
                             <hr>
@@ -40,17 +40,14 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                                    <form id="login-form" action="${pageContext.request.contextPath}/user" method="post" role="form" style="display: block;">
                                         <div class="form-group">
-                                            <input type="text" name="username" id="username1" tabindex="1" class="form-control" placeholder="Username" value="">
+                                            <input type="text" name="username" id="username1" tabindex="1" class="form-control" placeholder="Username">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" id="password1" tabindex="2" class="form-control" placeholder="Password">
                                         </div>
-                                        <div class="form-group text-center">
-                                            <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                            <label for="remember"> Remember Me</label>
-                                        </div>
+                                        <input type="hidden" name="action" value="check"/>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
@@ -58,46 +55,45 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="text-center">
-                                                        <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </form>
-                                    <form id="register-form" action="src/main/java/servlets/User_reg.java" method="post" role="form" style="display: none;">
+                                    <form id="register-form" action="${pageContext.request.contextPath}/user" method="post" role="form" style="display: none;">
                                         <div class="form-group">
-                                            <input type="text" name="user_id" id="id" tabindex="1" class="form-control" placeholder="Id Number" value="">
+                                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Name" value="">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="user_name" id="username2" tabindex="1" class="form-control" placeholder="Name" value="">
+                                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="user_address" id="address" tabindex="1" class="form-control" placeholder="Address" value="">
+                                            <input type="password" name="confmpassword" id="confmpassword" tabindex="2" class="form-control" placeholder="Retype Password">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" name="user_phone" id="phone" tabindex="1" class="form-control" placeholder="Phone number" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="user_email" id="email" tabindex="1" class="form-control" placeholder="Email-Address" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="user_password" id="password2" tabindex="2" class="form-control" placeholder="Password">
-                                        </div>
+                                        <input type="hidden" name="action" value="add"/>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-4 col-sm-offset-1">
                                                     <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
                                                 </div>
-                                                <%--<div class="col-sm-4 col-sm-offset-1">--%>
-                                                    <%--<input type="submit" name="updated-submit" id="updated-submit" tabindex="4" class="form-control btn btn-register" value="Update">--%>
-                                                <%--</div>--%>
                                             </div>
                                         </div>
                                     </form>
+                                    <!--form id="update-form" action="${pageContext.request.contextPath}/user" method="post" role="form" style="display: none;">
+                                        <div class="form-group">
+                                            <input type="text" name="username2" id="username2" tabindex="1" class="form-control" placeholder="Name" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="confmpassword2" id="confmpassword2" tabindex="2" class="form-control" placeholder="Retype Password">
+                                        </div>
+                                        <input type="hidden" name="action" value="add"/>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-4 col-sm-offset-1">
+                                                    <input type="submit" name="update-submit" id="update-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form-->
                                 </div>
                             </div>
                         </div>

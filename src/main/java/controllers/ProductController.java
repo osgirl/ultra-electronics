@@ -139,6 +139,48 @@ public class ProductController {
         return PRODUCTS_IN_CATEGORY;
     }
 
+    public Product getProductsById(String productId) {
+        Connection connection = null;
+        try {
+            connection = new Database().connect();
+
+            String sql ="SELECT " +
+                    "  product.productId AS productId, " +
+                    "  productName, " +
+                    "  catId, " +
+                    "  (SELECT catName " +
+                    "   FROM " + CATEGORY_TABLE_NAME +
+                    "   WHERE product.catId = category.catId) AS category, " +
+                    "  unitPrice, " +
+                    "  productDescription, " +
+                    "  IFNULL(qty, 0) AS qty " +
+                    "FROM " + PRODUCT_TABLE_NAME +
+                    "  LEFT JOIN " + INVENTORY_TABLE_NAME + " ON product.productId = inventory.productId " +
+                    "WHERE product.productId ='" + productId +"'";
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            if(resultSet.next()){
+                Product product = new Product();
+                product.setProductId(resultSet.getString("productId"));
+                product.setProductName(resultSet.getString("productName"));
+                product.setProductDescription(resultSet.getString("productDescription"));
+                product.setCategory(resultSet.getString("category"));
+                product.setCategoryId(resultSet.getString("catId"));
+                product.setQty(resultSet.getInt("qty"));
+                product.setUnitPrice(resultSet.getDouble("unitPrice"));
+                return product;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException ignored) { }
+        }
+        return null;
+    }
+
     public List<Product> searchProducts(String searchTerm) {
         List<Product> PRODUCTS = new ArrayList<Product>();
         Connection connection = null;
@@ -198,7 +240,9 @@ public class ProductController {
             String sql2 = "INSERT INTO product VALUES (" +
                     "'"+product.getProductId()+"', '"
                     +product.getProductName()+"', '"
-                    +product.getProductDescription()+"', '"+product.getCategoryId()+"', "+product.getUnitPrice()+")";
+                    +product.getProductDescription()+"', '"
+                    +product.getCategoryId()+"', "
+                    +product.getUnitPrice()+")";
             Statement statement2 = connection.createStatement();
             statement2.execute(sql2);
         }catch (Exception e) {
@@ -212,4 +256,25 @@ public class ProductController {
     }
 
 
+    public boolean updateProduct(Product product) {
+        Connection connection = null;
+        try {
+            connection = new Database().connect();
+            String sql =    "UPDATE product SET " +
+                            "productName='"+product.getProductName()+"', " +
+                            "productDescription='"+product.getProductDescription()+"', " +
+                            "catId='"+product.getCategoryId()+"', " +
+                            "unitPrice='"+product.getUnitPrice()+"' " +
+                            "WHERE productId='"+product.getProductId()+"'";
+            Statement statement2 = connection.createStatement();
+            statement2.execute(sql);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException ignored) { }
+        }
+        return true;
+    }
 }

@@ -10,7 +10,7 @@
 <body style="background-color: #ebebed">
 
 <jsp:include page="includes/top_bar.jsp">
-    <jsp:param name="menu" value="user_menu.html"/>
+    <jsp:param name="menu" value="user_menu.jsp"/>
 </jsp:include>
 
 <div class="row">
@@ -249,7 +249,7 @@
                                 <span>
                                     Unfortunately it is impossible for us to give you a warranty for electronic products.
                                     For Aptinex products (These are our company products) we will provide a service warranty
-                                    for a limited period where we will replace any component parts (please note that the customer
+                                    for a limited period where we will replace any component parts (please note that the user
                                     will have to pay for the replaced components) and provide any technical assistance you require
                                 </span>
                             </li>

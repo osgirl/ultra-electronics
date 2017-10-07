@@ -9,6 +9,8 @@ public class Product {
     private String productDescription;
     private String categoryId;
     private String category;
+    private int qty;
+    private double unitPrice;
 
     public String getCategoryId() {
         return categoryId;
@@ -18,8 +20,6 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    private int qty;
-
     public int getQty() {
         return qty;
     }
@@ -27,9 +27,6 @@ public class Product {
     public void setQty(int qty) {
         this.qty = qty;
     }
-
-
-    private double unitPrice;
 
     public String getProductId() {
         return productId;
