@@ -73,9 +73,7 @@ public class ProductServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("admin_account.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("manage_products.jsp");
         }else if("update".equals(action)){
             String productId = request.getParameter("productId2");
             String productName = request.getParameter("productName2");
@@ -92,22 +90,18 @@ public class ProductServlet extends HttpServlet {
 
             ProductController productController = new ProductController();
             productController.updateProduct(product);
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("admin_account.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("manage_products.jsp");
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productId = request.getParameter("id");
-        if(productId!=null){
+        if(productId!=null) {
             ProductController productController = new ProductController();
             String productJson = new Gson().toJson(productController.getProductsById(productId));
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(productJson);
-        }else{
-
         }
     }
 }

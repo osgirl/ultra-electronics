@@ -3,7 +3,7 @@ package controllers;
 import dto.LoginInfoType;
 import dto.User;
 import util.Database;
-import util.SessionUtils;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ public class UserController {
 
     private final String USER_TABLE_NAME = "user";
 
-    public boolean addCustomer(User user){
+    public boolean addUser(User user){
         Connection connection = null;
         try {
             connection = new Database().connect();
@@ -43,6 +43,28 @@ public class UserController {
         return true;
     }
 
+
+    public boolean updateUser(User user) {
+        Connection connection = null;
+        try {
+            connection = new Database().connect();
+            String sql =    "UPDATE user SET " +
+                    "username='"+user.getUsername()+"', " +
+                    "password='"+user.getPassword()+"' " +
+                    "WHERE username='"+user.getUsername()+"'";
+            Statement statement2 = connection.createStatement();
+            statement2.execute(sql);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                connection.close();
+            } catch (SQLException ignored) { }
+        }
+        return true;
+    }
+
+
     public HashMap<LoginInfoType, String> getLoginInfo(User user){
         HashMap<LoginInfoType, String> loginInfo = new HashMap<LoginInfoType, String>();
         Connection connection = null;
@@ -66,11 +88,9 @@ public class UserController {
         return loginInfo;
     }
 
-    public boolean login(User user) {
+    public boolean isUserExists(User user) {
         HashMap<LoginInfoType, String> loginInfo = getLoginInfo(user);
         if(loginInfo.containsKey(LoginInfoType.USERNAME) && loginInfo.containsKey(LoginInfoType.USER_ROLE)){
-            SessionUtils sessionUtils = new SessionUtils();
-            sessionUtils.setSessions();
             return true;
         }
         return false;

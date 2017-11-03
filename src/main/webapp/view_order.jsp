@@ -5,14 +5,18 @@
     }
 %>
 
+<%@ page import="controllers.OrderController" %>
 <%@ page import="java.util.List" %>
-<%@ page import="dto.Product" %>
+<%@ page import="dto.ProductOrder" %>
+<%@ page import="dto.OrderDetail" %>
+<%@ page import="controllers.UserController" %>
 <%@ page import="controllers.ProductController" %>
+<%@ page import="dto.Product" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Item List</title>
+    <title>Send List</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/css.css" rel="stylesheet">
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,7 +29,6 @@
 </jsp:include>
 
 <div class="row">
-
     <div class="col-md-12">
         <div class="box"
              style=" height: 100% ; margin: 20px ; margin-left: 0px ; margin-right: 5px ; padding-bottom: 20px ; background-color: white ; padding-left: 20px ; padding-right: 20px ; padding-top: 20px">
@@ -33,12 +36,15 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col col-xs-6">
-                            <h3 class="panel-title">All Items</h3>
-                        </div>
-                        <div class="col col-xs-6 text-right">
-                            <a href="manage_products.jsp">
-                                <button type="button" class="btn btn-sm btn-primary btn-create">New Item</button>
-                            </a>
+                            <h5 class="panel-title"><b>ORDER ID : <%=request.getParameter("id")%></b></h5>
+                            <br/>
+                            <%
+                            ProductOrder productOrder = new OrderController().getOrderById(
+                                    Integer.parseInt(request.getParameter("id")));
+                            %>
+                            <p>Customer Name : <%=productOrder.getCustId()%><br/>
+                                Address : <%=productOrder.getAddress()%><br/>
+                                Contact Number : <%=productOrder.getTel()%></p>
                         </div>
                     </div>
                 </div>
@@ -46,36 +52,29 @@
                     <table class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th>Item ID</th>
-                            <th>Item Name</th>
+                            <th style="width: 50px">Product ID</th>
+                            <th>Product Name</th>
                             <th>Category</th>
-                            <th>Qty</th>
-                            <th>Unit Price (Rs)</th>
-                            <th>Actions</th>
+                            <th style="width: 30px">Qty</th>
                         </tr>
                         </thead>
                         <tbody>
                         <%
-                            List<Product> products = new ProductController().getAllProducts();
-                            for(Product product : products){
+                        List<OrderDetail> orderDetails = productOrder.getOrderDetails();
+                        for(OrderDetail orderDetail : orderDetails){
                         %>
                         <tr>
-                            <td><%=product.getProductId() %></td>
-                            <td><%=product.getProductName() %></td>
-                            <td><%=product.getCategory() %></td>
-                            <td><%=product.getQty() %></td>
-                            <td><%=product.getUnitPrice() %></td>
-                            <td align="center">
-                                <a href="manage_products.jsp?action=update-product&id=<%=product.getProductId()%>" ><em class="fa fa-pencil"></em></a>
-                                &nbsp;&nbsp;
-
-                            </td>
+                            <td style="text-align: center;"><%=orderDetail.getProductId()%></td>
+                            <%
+                            Product product = new ProductController().getProductsById(orderDetail.getProductId());
+                            %>
+                            <td><%=product.getProductName()%></td>
+                            <td><%=product.getCategory()%></td>
+                            <td><%=orderDetail.getQty() %></td>
                         </tr>
-
                         <%
-                            }
+                        }
                         %>
-
                         </tbody>
                     </table>
                 </div>
@@ -84,10 +83,7 @@
 
     </div>
 </div>
-
-
 <div class="footer">@ Ultra Electronics web store - Galle</div>
-
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

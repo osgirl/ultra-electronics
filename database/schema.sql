@@ -23,7 +23,7 @@ CREATE TABLE orders
   tel VARCHAR(20),
   address VARCHAR(500)
 );
-CREATE INDEX custId ON orders (custId);
+CREATE INDEX custId ON productOrder (custId);
 CREATE TABLE product
 (
   productId VARCHAR(100) DEFAULT '' PRIMARY KEY NOT NULL,

@@ -1,3 +1,10 @@
+<%
+    //check if logged in or not
+    if(session.getAttribute("username")==null){
+        response.sendRedirect("user.jsp");
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,17 +29,13 @@
             <div class="details">
                 <form id="change-pw-form" action="${pageContext.request.contextPath}/user" method="post" role="form">
                     <div class="form-group">
-                        <!--TODO : load curunt username from sessions-->
-                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Name" value="CHATHURI" disabled>
+                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Name" value="<%=(String)session.getAttribute("username")%>" disabled>
                     </div>
                     <div class="form-group">
                         <input type="password" name="old-password" id="old-password" tabindex="2" class="form-control" placeholder="Old Password">
                     </div>
                     <div class="form-group">
                         <input type="password" name="new-password" id="new-password" tabindex="2" class="form-control" placeholder="New Password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="confm-password" id="confm-password" tabindex="2" class="form-control" placeholder="Retype Password">
                     </div>
                     <input type="hidden" name="action" value="update"/>
                     <div class="form-group">

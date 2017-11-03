@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" xmlns:c="http://www.w3.org/1999/XSL/Transform">
     <div class="container" style="">
 
@@ -24,8 +22,6 @@
         </div>
     </div>
 </nav>
-
-
 <div class="banner">
 
     <img id="banner" src="images/banner.jpg" alt="banner">
@@ -65,9 +61,6 @@
                 </li>
                 <li class="lst"><a class="btn_nav" href="faqs.jsp">&nbsp;&nbsp;&nbsp;FAQs&nbsp;&nbsp;&nbsp;</a></li>
                 <li class="lst"><a class="btn_nav" href="about_us.jsp">&nbsp;&nbsp;&nbsp;About Us&nbsp;&nbsp;&nbsp;</a></li>
-
-
-
                 <li class="dropdown">
                     <a style="color: white ; font-weight: bold" href="#" class="dropdown-toggle" data-toggle="dropdown">Contact
                         Us<b class="caret"></b></a>
@@ -79,13 +72,8 @@
                         <li class="divider"></li>
                         <li style="padding-left: 8px">Phone : <br>+94 11 2735220<br></li>
                         <li class="divider"></li>
-
-
                     </ul>
                 </li>
-                <li class="lst"><a class="btn_nav" href="user.jsp">&nbsp;Sign In / Sign Up&nbsp;</a></li>
-
-
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>

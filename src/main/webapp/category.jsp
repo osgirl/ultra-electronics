@@ -29,17 +29,23 @@
             %>
             <div class="row" style="">
                 <%
-                    for(int j=i; j<(latestProducts.size()<(i+3)?latestProducts.size():(i+3)); j++){
+                    for(int j=i; j<i+3; j++){
                 %>
                 <div class="col-md-4 col-xs-4">
                     <div class="box" style="background: linear-gradient(#66e6f3, #1b8fd8) ; padding: 20px ; margin-top: 30px ; margin-right: 10px ; height: auto ; border-radius: 5px ">
                         <img src="product-images/<%=latestProducts.get(j).getProductId()+"."+Properties.getInstance().getProperty("product.image.type")%>" alt="<%=latestProducts.get(j).getProductName()%>" style="width: 100% ">
                         <span style="font-size: medium ; font-weight: bold ; color: #1B4F72"><%=latestProducts.get(j).getProductName()%></span>
                         <br>
+                        <label style="">Price : <%=latestProducts.get(j).getUnitPrice()%> LKR</label>
                         <br>
                         <label style=""><%=(latestProducts.get(j).getQty()>0)?"Available":"Out Of Stock"%></label>
                         <br>
-                        <button type="button" class="btn btn-success">Buy It Now</button>
+                        <form action="${pageContext.request.contextPath}/cart" method="post">
+                            <input type="hidden" name="productId" value="<%=latestProducts.get(j).getProductId()%>">
+                            <input type="hidden" name="action" value="add">
+                            <input class="form-control" type="number" name="qty" id="qty" <%=(latestProducts.get(j).getQty()>0)?"":"disabled"%> style="display: inline-block; width: 80px">
+                            <button type="submit" class="btn btn-success" <%=(latestProducts.get(j).getQty()>0)?"":"disabled"%>>Add to Cart</button>
+                        </form>
                         <br>
                     </div>
                 </div>

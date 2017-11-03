@@ -1,6 +1,7 @@
 package servlets;
 
 import controllers.UserController;
+import dto.LoginInfoType;
 import dto.User;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * Created by chathuri on 10/5/17.
@@ -26,13 +28,26 @@ public class UserServlet extends HttpServlet {
             user.setPassword(password);
 
             UserController userController = new UserController();
-            userController.addCustomer(user);
+            userController.addUser(user);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("index.jsp");
         }else if("update".equals(action)){
-            //TODO: update password
-        }else if("check".equals(action)){
+
+            //TODO: get the username from sessions. check OrderServlet
+
+            String username = request.getParameter("username");
+            String password = request.getParameter("new-password");
+
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(password);
+
+
+            UserController userController = new UserController();
+            userController.updateUser(user);
+
+            response.sendRedirect("index.jsp");
+        }else if("login".equals(action)){
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
@@ -41,18 +56,28 @@ public class UserServlet extends HttpServlet {
             user.setPassword(password);
 
             UserController userController = new UserController();
-            RequestDispatcher dispatcher;
-            if(userController.login(user)){
-                //TODO: ge the user role from sessions and redirect to correct jsp
-                dispatcher = request.getRequestDispatcher("index.jsp");
+            if(userController.isUserExists(user)){
+                HashMap<LoginInfoType, String> loginInfo = userController.getLoginInfo(user);
+                request.getSession().setAttribute("username", loginInfo.get(LoginInfoType.USERNAME));
+                request.getSession().setAttribute("userrole", loginInfo.get(LoginInfoType.USER_ROLE));
+                if("ADMIN".equals(loginInfo.get(LoginInfoType.USER_ROLE))){
+                    response.sendRedirect("list_of_items.jsp");
+                }else{
+                    response.sendRedirect("index.jsp");
+                }
+
             }else{
-                dispatcher = request.getRequestDispatcher("user.jsp");
+                response.sendRedirect("user.jsp");
             }
-            dispatcher.forward(request, response);
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String action = request.getParameter("action");
+        if("logout".equals(action)){
+            request.getSession().removeAttribute("username");
+            request.getSession().removeAttribute("userrole");
+            response.sendRedirect("index.jsp");
+        }
     }
 }

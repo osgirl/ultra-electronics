@@ -102,8 +102,9 @@ public class InventoryController {
         try {
             connection = new Database().connect();
             String sql =    "UPDATE "+INVENTORY_TABLE_NAME+" SET " +
-                    "qty='"+inventory.getQty()+"', " +
+                    "qty='"+inventory.getQty()+"' " +
                     "WHERE productId='"+inventory.getProductId()+"'";
+            System.out.println(sql);
             Statement statement2 = connection.createStatement();
             statement2.execute(sql);
         }catch (Exception e) {

@@ -47,7 +47,7 @@
                                         <div class="form-group">
                                             <input type="password" name="password" id="password1" tabindex="2" class="form-control" placeholder="Password">
                                         </div>
-                                        <input type="hidden" name="action" value="check"/>
+                                        <input type="hidden" name="action" value="login"/>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
@@ -75,25 +75,6 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <!--form id="update-form" action="${pageContext.request.contextPath}/user" method="post" role="form" style="display: none;">
-                                        <div class="form-group">
-                                            <input type="text" name="username2" id="username2" tabindex="1" class="form-control" placeholder="Name" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="confmpassword2" id="confmpassword2" tabindex="2" class="form-control" placeholder="Retype Password">
-                                        </div>
-                                        <input type="hidden" name="action" value="add"/>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-sm-4 col-sm-offset-1">
-                                                    <input type="submit" name="update-submit" id="update-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form-->
                                 </div>
                             </div>
                         </div>

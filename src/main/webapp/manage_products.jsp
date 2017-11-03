@@ -1,8 +1,17 @@
+<%
+    //check if logged in or not
+    if(session.getAttribute("username")==null || !"ADMIN".equals(session.getAttribute("userrole"))){
+        response.sendRedirect("index.jsp");
+    }
+%>
+
 <%@ page import="dto.Category" %>
 <%@ page import="controllers.CategoryController" %>
 <%@ page import="java.util.List" %>
 <%@ page import="dto.Product" %>
 <%@ page import="controllers.ProductController" %>
+<%@ page import="dto.Inventory" %>
+<%@ page import="controllers.InventoryController" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,17 +42,23 @@
                         <div class="panel panel-login">
                             <div class="panel-heading">
                                 <div class="row">
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-2">
                                         <a href="#" class="active" id="add-product-link">Add Item</a>
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-2">
                                         <a href="#" id="add-category-link">Add Catagory</a>
                                     </div>
-                                    <div class="col-xs-3">
-                                        <a href="#" class="" id="update-product-link">update Item</a>
+                                    <div class="col-xs-2">
+                                        <a href="#" id="add-inventory-link">Add Inventory</a>
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-2">
+                                        <a href="#" id="update-product-link">update Item</a>
+                                    </div>
+                                    <div class="col-xs-2">
                                         <a href="#" id="update-category-link">update Catagory</a>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <a href="#" id="update-inventory-link">update Inventory</a>
                                     </div>
                                 </div>
                                 <hr>
@@ -105,6 +120,22 @@
                                                 <div class="row">
                                                     <div class="col-sm-4 col-sm-offset-1">
                                                         <input type="submit" name="add-cat-submit" id="add-cat-submit" tabindex="4" class="form-control btn btn-register" value="Add Catagory">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <form id="add-inventory" action="${pageContext.request.contextPath}/inventory" method="post" role="form" style="display: none;">
+                                            <div class="form-group">
+                                                <input type="text" name="productId1" id="productId1" tabindex="1" class="form-control" placeholder="Inventory Id" value="">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="qty" id="qty" tabindex="1" class="form-control" placeholder="Quantity" value="">
+                                            </div>
+                                            <input type="hidden" name="action" value="add">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-sm-offset-1">
+                                                        <input type="submit" name="add-inventory-submit" id="add-inventory-submit" tabindex="4" class="form-control btn btn-register" value="Add Catagory">
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,6 +213,32 @@
                                                 </div>
                                             </div>
                                         </form>
+                                        <form id="update-inventory" action="${pageContext.request.contextPath}/inventory" method="post" role="form" style="display: none;">
+                                            <div class="form-group">
+                                                <select name="inventoryId2" id="inventoryId2" class="form-control">
+                                                    <option selected="selected" hidden="hidden">--Select Inventory Id--</option>
+                                                    <%
+                                                        List<Inventory> inventories = new InventoryController().getAllInventories();
+                                                        for(Inventory inventory : inventories){
+                                                    %>
+                                                    <option value="<%=inventory.getProductId()%>"><%=inventory.getProductId()%></option>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="qty2" id="qty2" tabindex="1" class="form-control" placeholder="Quantity" value="">
+                                            </div>
+                                            <input type="hidden" name="action" value="update">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-4 col-sm-offset-1">
+                                                        <input type="submit" name="update-inventory-submit" id="update-inventory-submit" tabindex="4" class="form-control btn btn-register" value="Update Inventory">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -235,11 +292,15 @@
         if("add-category" == action){
             $('#add-category-link').click();
             console.info("add-category clicked");
+        }else if("add-inventory" == action){
+            $('#add-inventory-link').click();
         }else if("update-product" == action){
             $('#update-product-link').click();
             $('#productId2').val($.url('?id')).change();
         }else if("update-category" == action){
             $('#update-category-link').click();
+        }else if("update-inventory" == action){
+            $('#update-inventory-link').click();
         }
     });
 </script>

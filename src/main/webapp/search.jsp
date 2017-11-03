@@ -36,7 +36,7 @@
                 %>
                 <div class="col-md-4 col-xs-4">
                     <div class="box" style="background: linear-gradient(#66e6f3, #1b8fd8) ; padding: 20px ; margin-top: 30px ; margin-right: 10px ; height: auto ; border-radius: 5px ">
-                        <img src="images/<%=searchProducts.get(j).getProductId()%>.png" alt="<%=searchProducts.get(j).getProductName()%>" style="width: 100% ">
+                        <img src="product-images/<%=searchProducts.get(j).getProductId()%>.png" alt="<%=searchProducts.get(j).getProductName()%>" style="width: 100% ">
                         <span style="font-size: medium ; font-weight: bold ; color: #1B4F72"><%=searchProducts.get(j).getProductName()%></span>
                         <br>
                         <br>

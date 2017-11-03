@@ -31,8 +31,11 @@
                         <div class="box" style="height: 100% ; width: 100% ; border: 2px solid ; border-color: #616A6B ; padding: 5px ; padding-top: 15px  ">
                             <img style="width: 50px" src="images/cart.ico" alt="cart">
                             <label id="totalAmount" style="font-size:large; font-weight: bold "></label>
-                            <button style="margin-left: 25px " type="button" class="btn btn-primary">Proceed to Checkout</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <label style="font-weight: bold; color: white; border-radius: 2px; background-color: green; padding: 5px 10px">MONEY BACK GUARANTEE</label>
+                            <a href="checkout.jsp">
+                                <button style="margin-left: 25px " type="button" class="btn btn-primary">Proceed to Checkout</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a>
+
+                            <label style="font-weight: bold; color: white; border-radius: 2px; background-color: green; padding: 5px 10px">CASH ON DELIVERY</label>
                         </div>
                     </div>
                 </div>

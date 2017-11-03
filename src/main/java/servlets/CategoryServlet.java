@@ -33,8 +33,7 @@ public class CategoryServlet extends HttpServlet {
             CategoryController categoryController = new CategoryController();
             categoryController.addCategory(category);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("admin_account.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("manage_products.jsp");
         }else if("update".equals(action)){
             String catId = request.getParameter("categoryId2");
             String catName = request.getParameter("categoryName2");
@@ -48,8 +47,7 @@ public class CategoryServlet extends HttpServlet {
             CategoryController categoryController = new CategoryController();
             categoryController.updateCategory(category);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("admin_account.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("manage_products.jsp");
         }
 
     }
@@ -62,8 +60,6 @@ public class CategoryServlet extends HttpServlet {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(categoryJson);
-        }else{
-
         }
     }
 }

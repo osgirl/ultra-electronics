@@ -51,8 +51,7 @@ public class CartServlet extends HttpServlet {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST);
             }
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("shopping_cart.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("shopping_cart.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
